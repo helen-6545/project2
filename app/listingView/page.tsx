@@ -1,24 +1,18 @@
 'use client';
 import React from "react";
 import {useRouter} from "next/navigation";
-import Script from 'next/script'
-import {chooseCard} from "./cardChoose.js"
 
 
 export default function home(){
   const router = useRouter();
-
   return (
     <><text>
-      You're in the home page yayy
-
-      <button className="homeButtons" onClick={chooseCard}>
-          Show Card!
-        </button>
+      You're in the listing page yayy
 
 
 
-        <p><button className="linkButtons" onClick={() => router.push('/')}>
+      
+      <p><button className="linkButtons" onClick={() => router.push('/')}>
           Home
         </button>
       <button className="linkButtons" onClick={() => router.push('/difficultyAssign')}>
