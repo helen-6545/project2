@@ -32,7 +32,31 @@ body {
   width: 150px;
 }
 
-.homeButtons{
+.cardButton{
+  background: #5e67d1;
+  color:#0a0a0a;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10%;
+  width: 150px;
+}
+
+.answerButton{
+  background: #5e67d1;
+  color:#0a0a0a;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10%;
+  width: 150px;
+}
+
+.checkButtons{
   background: #5e67d1;
   color:#0a0a0a;
   margin: 10px;

@@ -1,0 +1,159 @@
+
+
+{
+    "0": {
+    "prompt":"The Fool",
+    "Answer":"Upright: innocence, new beginnings, free spirit",
+    "AnswerReversed": "Reversed: recklessness, taken advantage of, inconsideration",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "1": {
+    "prompt":"The Magician",
+    "Answer":"Upright: willpower, desire, creation, manifestation",
+    "AnswerReversed": "Reversed: trickery, illusions, out of touch",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "2": {
+    "prompt":"The High Priestess",
+    "Answer":"Upright: intuitive, unconscious, inner voice",
+    "AnswerReversed": "Reversed: lack of center, lost inner voice, repressed feelings",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "3": {
+    "prompt":"The Empress",
+    "Answer":"Upright: motherhood, fertility, nature",
+    "AnswerReversed": "Reversed: dependence, smothering, emptiness, nosiness",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "4": {
+    "prompt":"The Emperor",
+    "Answer":"Upright: authority, structure, control, fatherhood",
+    "AnswerReversed": "Reversed: tyranny, rigidity, coldness",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "5": {
+    "prompt":"The Hierophant",
+    "Answer":"Upright: tradition, conformity, morality, ethics",
+    "AnswerReversed": "Reversed: rebellion, subversiveness, new approaches",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "6": {
+    "prompt":"The Lovers",
+    "Answer":"Upright: partnerships, duality, union",
+    "AnswerReversed": "Reversed: loss of balance, one-sidedness, disharmony",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "7": {
+    "prompt":"The Chariot",
+    "Answer":"Upright: direction, control, willpower",
+    "AnswerReversed": "Reversed: lack of control, lack of direction, aggression",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "8": {
+    "prompt":"Strength",
+    "Answer":"Upright: inner strength, bravery, compassion, focus",
+    "AnswerReversed": "Reversed: self doubt, weakness, insecurity",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "9": {
+    "prompt":"The Hermit",
+    "Answer":"Upright: contemplation, search for truth, inner guidance",
+    "AnswerReversed": "Reversed: loneliness, isolation, lost your way",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "10": {
+    "prompt":"Wheel of Fortune",
+    "Answer":"Upright: change, cycles, inevitable fate",
+    "AnswerReversed": "Reversed: no control, clinging to control, bad luck",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "11": {
+    "prompt":"Justice",
+    "Answer":"Upright: cause and effect, clarity, truth",
+    "AnswerReversed": "Reversed: dishonesty, unaccountability, unfairness",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "12": {
+    "prompt":"The Hanged Man",
+    "Answer":"Upright: sacrifice, release, martyrdom",
+    "AnswerReversed": "Reversed: stalling, needless sacrifice, fear of sacrifice",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "13": {
+    "prompt":"Death",
+    "Answer":"Upright: end of cycle, beginnings, change, metamorphosis",
+    "AnswerReversed": "Reversed: fear of change, holding on, stagnation, decay",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "14": {
+    "prompt":"Temperance",
+    "Answer":"Upright: middle path, patience, finding meaning",
+    "AnswerReversed": "Reversed: extremes, excess, lack of balance",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "15": {
+    "prompt":"The Devil",
+    "Answer":"Upright: addiction, materialism, playfulness",
+    "AnswerReversed": "Reversed: freedom, release, restoring control",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "16": {
+    "prompt":"The Tower",
+    "Answer":"Upright: sudden upheaval, broken pride, disaster",
+    "AnswerReversed": "Reversed: disaster avoided, delayed disaster, fear of suffering",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "17": {
+    "prompt":"The Star",
+    "Answer":"Upright: hope, faith, rejuvenation",
+    "AnswerReversed": "Reversed: faithlessness, discouragement, insecurity",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "18": {
+    "prompt":"The Moon",
+    "Answer":"Upright: unconscious, illusions, intuition",
+    "AnswerReversed": "Reversed: confusion, fear, misinterpretation",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "19": {
+    "prompt":"The Sun",
+    "Answer":"Upright: joy, success, celebration, positivity",
+    "AnswerReversed": "Reversed: negativity, depression, sadness",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "20": {
+    "prompt":"Judgment",
+    "Answer":"Upright: reflection, reckoning, awakening",
+    "AnswerReversed": "Reversed: lack of self awareness, doubt, self loathing",
+    "difficulty":3,
+    "scheduledTime":0},
+
+    "21": {
+    "prompt":"The World",
+    "Answer":"Upright: fulfillment, harmony, completion", 
+    "AnswerReversed": "Reversed: incompletion, no closure",
+    "difficulty":3,
+    "scheduledTime":0}
+    
+
+}
