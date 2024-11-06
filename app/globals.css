@@ -68,6 +68,11 @@ body {
   width: 150px;
 }
 
+.cardViewImage{
+  width:150px;
+  margin:10px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

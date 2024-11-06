@@ -5,6 +5,8 @@ import {useRouter} from "next/navigation";
 
 export default function home(){
   const router = useRouter();
+
+  
   return (
     <><text>
       You're in the listing page yayy
