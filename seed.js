@@ -3,10 +3,10 @@ const prisma = new PrismaClient()
 
 
 
-const db = async () => {
+const seed = async () => {
         const createMany = await prisma.video.createMany({
             data: [
-                    {number:"0",
+                    {
                     prompt:"The Fool",
                     Answer:"Upright: innocence, new beginnings, free spirit",
                     AnswerReversed: "Reversed: recklessness, taken advantage of, inconsideration",
@@ -14,7 +14,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"1",
+                    {
                     prompt:"The Magician",
                     Answer:"Upright: willpower, desire, creation, manifestation",
                     AnswerReversed: "Reversed: trickery, illusions, out of touch",
@@ -22,7 +22,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"2",
+                    {
                     prompt:"The High Priestess",
                     Answer:"Upright: intuitive, unconscious, inner voice",
                     AnswerReversed: "Reversed: lack of center, lost inner voice, repressed feelings",
@@ -30,7 +30,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"3",
+                    {
                     prompt:"The Empress",
                     Answer:"Upright: motherhood, fertility, nature",
                     AnswerReversed: "Reversed: dependence, smothering, emptiness, nosiness",
@@ -38,7 +38,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"4",
+                    {
                     prompt:"The Emperor",
                     Answer:"Upright: authority, structure, control, fatherhood",
                     AnswerReversed: "Reversed: tyranny, rigidity, coldness",
@@ -46,7 +46,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"5",
+                    {
                     prompt:"The Hierophant",
                     Answer:"Upright: tradition, conformity, morality, ethics",
                     AnswerReversed: "Reversed: rebellion, subversiveness, new approaches",
@@ -54,7 +54,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"6",
+                    {
                     prompt:"The Lovers",
                     Answer:"Upright: partnerships, duality, union",
                     AnswerReversed: "Reversed: loss of balance, one-sidedness, disharmony",
@@ -62,7 +62,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"7",
+                    {
                     prompt:"The Chariot",
                     Answer:"Upright: direction, control, willpower",
                     AnswerReversed: "Reversed: lack of control, lack of direction, aggression",
@@ -70,7 +70,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"8",
+                    {
                     prompt:"Strength",
                     Answer:"Upright: inner strength, bravery, compassion, focus",
                     AnswerReversed: "Reversed: self doubt, weakness, insecurity",
@@ -78,7 +78,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"9",
+                    {
                     prompt:"The Hermit",
                     Answer:"Upright: contemplation, search for truth, inner guidance",
                     AnswerReversed: "Reversed: loneliness, isolation, lost your way",
@@ -86,7 +86,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"10",
+                    {
                     prompt:"Wheel of Fortune",
                     Answer:"Upright: change, cycles, inevitable fate",
                     AnswerReversed: "Reversed: no control, clinging to control, bad luck",
@@ -94,7 +94,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"11",
+                    {
                     prompt:"Justice",
                     Answer:"Upright: cause and effect, clarity, truth",
                     AnswerReversed: "Reversed: dishonesty, unaccountability, unfairness",
@@ -102,7 +102,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"12",
+                    {
                     prompt:"The Hanged Man",
                     Answer:"Upright: sacrifice, release, martyrdom",
                     AnswerReversed: "Reversed: stalling, needless sacrifice, fear of sacrifice",
@@ -110,7 +110,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"13",
+                    {
                     prompt:"Death",
                     Answer:"Upright: end of cycle, beginnings, change, metamorphosis",
                     AnswerReversed: "Reversed: fear of change, holding on, stagnation, decay",
@@ -118,7 +118,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"14",
+                    {
                     prompt:"Temperance",
                     Answer:"Upright: middle path, patience, finding meaning",
                     AnswerReversed: "Reversed: extremes, excess, lack of balance",
@@ -126,7 +126,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"15",
+                    {
                     prompt:"The Devil",
                     Answer:"Upright: addiction, materialism, playfulness",
                     AnswerReversed: "Reversed: freedom, release, restoring control",
@@ -134,7 +134,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"16",
+                    {
                     prompt:"The Tower",
                     Answer:"Upright: sudden upheaval, broken pride, disaster",
                     AnswerReversed: "Reversed: disaster avoided, delayed disaster, fear of suffering",
@@ -142,7 +142,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"17",
+                    {
                     prompt:"The Star",
                     Answer:"Upright: hope, faith, rejuvenation",
                     AnswerReversed: "Reversed: faithlessness, discouragement, insecurity",
@@ -150,7 +150,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"18",
+                    {
                     prompt:"The Moon",
                     Answer:"Upright: unconscious, illusions, intuition",
                     AnswerReversed: "Reversed: confusion, fear, misinterpretation",
@@ -158,7 +158,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"19",
+                    {
                     prompt:"The Sun",
                     Answer:"Upright: joy, success, celebration, positivity",
                     AnswerReversed: "Reversed: negativity, depression, sadness",
@@ -166,7 +166,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"20",
+                    {
                     prompt:"Judgment",
                     Answer:"Upright: reflection, reckoning, awakening",
                     AnswerReversed: "Reversed: lack of self awareness, doubt, self loathing",
@@ -174,7 +174,7 @@ const db = async () => {
                     difficulty:3,
                     scheduledTime:0},
                 
-                    {number:"21",
+                    {
                     prompt:"The World",
                     Answer:"Upright: fulfillment, harmony, completion", 
                     AnswerReversed: "Reversed: incompletion, no closure",
@@ -188,4 +188,4 @@ const db = async () => {
 }
 
 
-db()
+seed()
