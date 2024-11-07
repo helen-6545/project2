@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 
 const seed = async () => {
-        const createMany = await prisma.video.createMany({
+        const createMany = await prisma.Card.createMany({
             data: [
                     {
                     prompt:"The Fool",

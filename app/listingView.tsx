@@ -1,5 +1,17 @@
-'use client';
-import React from "react";
-import Home from './page'
-//import {data} from './page'
-let state = 0
+import { PrismaClient } from '@prisma/client'
+
+
+export default async function Page( ) {
+
+const prisma = new PrismaClient()
+const data = await prisma.card.findMany()
+
+//const videoList = videos.map((card, index) =>
+//<li key = {index}>{video.name}</li> 
+//)
+
+
+return( <>
+{data}
+</> )
+}

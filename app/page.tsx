@@ -1,11 +1,13 @@
 'use client';
-import React from "react";
-import {useRouter} from "next/navigation";
+import React from 'react';
 import { useEffect, useState } from 'react'
-//import Script from 'next/script'
-let readyCards: string[] = []
-let drawnCard = ""
-let DataHotel = [" ", " ", " ", " ", " "]
+import { PrismaClient } from '@prisma/client'
+let readyCards: number[] = []
+let drawnCard: number
+let DataHotel: {id: number; prompt: string; Answer: string; AnswerReversed: string; image: string} = { 
+  id:0, prompt:"", Answer:"", AnswerReversed: "", image:"" }
+
+//any[] = [" ", " ", " ", " ", " "]
 
 let level: number
 let showCardButton = true
@@ -17,18 +19,26 @@ let quizPage = true
 let viewPage = false
 let letsStart = false
 
+//import data from './listingView'
 
+const prisma = new PrismaClient()
 
-export default function home(){
-  const router = useRouter();
-  const [data, setData] = useState<any>([]);
-  useEffect(() => {
-    fetch('/database.json')
-        .then(response => response.json())
-        .then(data => setData(data));
-}, []);
+export default async function home(){
+  //const router = useRouter();
 
-const [cardDisplay, setCardDisplay] = React.useState([" ", " ", " ", " ", " "]);
+  const data = await prisma.card.findMany()
+
+  //const [data, setData] = useState<any>([]);
+  //useEffect(() => {
+    //fetch('/database.json')
+      //  .then(response => response.json())
+        //.then(data => setData(data));
+//}, []);
+
+const [cardDisplay, setCardDisplay] = useState<{id: number; prompt: string; Answer: string; AnswerReversed: string; image: string}>({
+                    id:0, prompt:"", Answer:"", AnswerReversed: "", image:""});
+
+//React.useState([, , , , ]);
 
   return (
     <><text>
@@ -46,18 +56,18 @@ const [cardDisplay, setCardDisplay] = React.useState([" ", " ", " ", " ", " "]);
       Think about the answer. For added challenge think of the reversed meaning. When you're ready click the button!
       <br /> <br />
 
-      <img src = {cardDisplay[2]}/>
+      <img src = {cardDisplay["image"]}/>
 
-      Your card is number {cardDisplay[0]}: {cardDisplay[1]}...
+      Your card is number {cardDisplay["id"]}: {cardDisplay["prompt"]}...
 
 
       <p>{showAnswerButton && <button className="answerButton" onClick={showAnswer}>
         Show Answer
       </button>}</p>
 
-      {cardDisplay[3]}
+      {cardDisplay["Answer"]}
       <br /> <br />
-      {cardDisplay[4]}</div>}
+      {cardDisplay["AnswerReversed"]}</div>}
 
       <br />
 
@@ -76,19 +86,19 @@ const [cardDisplay, setCardDisplay] = React.useState([" ", " ", " ", " ", " "]);
 
       {viewPage && <div>
 
-        {letsStart && <p><img src = {cardDisplay[2]}/>
-        {cardDisplay[0]}: {cardDisplay[1]}
+        {letsStart && <p><img src = {cardDisplay["image"]}/>
+        {cardDisplay["id"]}: {cardDisplay["prompt"]}
         <br />
-        {cardDisplay[3]}
-       <br /> <br />
-       {cardDisplay[4]}
-       <br /> <br />
+        {cardDisplay["Answer"]}
+        <br /> <br />
+        {cardDisplay["AnswerReversed"]}
+        <br /> <br />
         Do you find this card...
-        <p><button className="checkButtons" onClick={() => easy(cardDisplay[0])}>
+        <p><button className="checkButtons" onClick={() => easy(cardDisplay["id"])}>
           <label>Easy</label></button>
-          <button className="checkButtons" onClick={() => medium(cardDisplay[0])}>
+          <button className="checkButtons" onClick={() => medium(cardDisplay["id"])}>
           <label>Medium</label></button>
-          <button className="checkButtons" onClick={() => hard(cardDisplay[0])}>
+          <button className="checkButtons" onClick={() => hard(cardDisplay["id"])}>
           <label>Hard</label></button></p></p>}
         
         <p><button className="cardViewButton" onClick={() => showCard(0)}>
@@ -198,22 +208,22 @@ function viewPageShow(){
   showCardButton = true
   letsStart = false
   viewPage=true
-  router.refresh()
+  window.location.reload()
 }
 
 function quizPageShow(){
   quizPage=true
   letsStart = false
   viewPage=false
-  router.refresh()
+  window.location.reload()
 }
 
 function chooseCard(){
   if(data != null){
     readyCards=[]
       for(let i=0; i<22; i++){
-         if (data[String(i)]["scheduledTime"]==0){
-          readyCards.push(String(i))
+         if (data[i]["scheduledTime"]==0){
+          readyCards.push(i)
          }
 
       }
@@ -222,29 +232,29 @@ function chooseCard(){
       drawnCard = readyCards[Math.floor(Math.random()*readyCards.length)]
 
       console.log(drawnCard)
-      DataHotel[0] = drawnCard
-      DataHotel[1] = data[drawnCard]["prompt"]
-      DataHotel[2] = data[drawnCard]["image"]
-      DataHotel[3] = ""
-      DataHotel[4] = ""
+      DataHotel["id"] = drawnCard
+      DataHotel["prompt"] = data[drawnCard]["prompt"]
+      DataHotel["Answer"] = ""
+      DataHotel["AnswerReversed"] = ""
+      DataHotel["image"] = data[drawnCard]["image"]
       setCardDisplay(DataHotel)
       showCardButton = false
       letsStart = true
       showAnswerButton = true
-      router.refresh()
+      window.location.reload()
 }}
 
 function showAnswer(){
   if(data != null){
-  DataHotel[0] = drawnCard
-  DataHotel[1] = data[drawnCard]["prompt"]
-  DataHotel[2] = data[drawnCard]["image"]
-  DataHotel[3] = data[drawnCard]["Answer"]
-  DataHotel[4] = data[drawnCard]["AnswerReversed"]
+  DataHotel["id"] = drawnCard
+  DataHotel["prompt"] = data[drawnCard]["prompt"]
+  DataHotel["Answer"] = data[drawnCard]["Answer"]
+  DataHotel["AnswerReversed"] = data[drawnCard]["AnswerReversed"]
+  DataHotel["image"] = data[drawnCard]["image"]
   setCardDisplay(DataHotel)
   showAnswerButton = false
   showCheckButtons = true
-  router.refresh()
+  window.location.reload()
 }}
 
 function rightAnswer(){
@@ -265,8 +275,8 @@ function reset(){
   data[drawnCard]["difficulty"] = level
 
   for(let i=0; i<22; i++){
-  if (data[String(i)]["scheduledTime"] != 0) {
-    data[String(i)]["scheduledTime"]=data[String(i)]["scheduledTime"]-1
+  if (data[i]["scheduledTime"] != 0) {
+    data[i]["scheduledTime"]=data[i]["scheduledTime"]-1
 }}
 
 if (level == 1) {
@@ -286,32 +296,32 @@ if (level == 5) {
 }
 showCheckButtons = false
 showCardButton = true
-router.refresh()
+window.location.reload()
 console.log(data)
 }
 
 function showCard(drawnCard: number){
   if(data != null){
-    DataHotel[0] = String(drawnCard)
-    DataHotel[1] = data[drawnCard]["prompt"]
-    DataHotel[2] = data[drawnCard]["image"]
-    DataHotel[3] = data[drawnCard]["Answer"]
-    DataHotel[4] = data[drawnCard]["AnswerReversed"]
+    DataHotel["id"] = drawnCard
+    DataHotel["prompt"] = data[drawnCard]["prompt"]
+    DataHotel["Answer"] = data[drawnCard]["Answer"]
+    DataHotel["AnswerReversed"] = data[drawnCard]["AnswerReversed"]
+    DataHotel["image"] = data[drawnCard]["image"]
     setCardDisplay(DataHotel)
     letsStart = true
-    router.refresh()
+    window.location.reload()
   }
 }
 
-function easy(drawnCard: string){
+function easy(drawnCard: number){
   data[drawnCard]["difficulty"] = 1
   data[drawnCard]["scheduledTime"] = 16;
 }
-function medium(drawnCard: string){
+function medium(drawnCard: number){
   data[drawnCard]["difficulty"] = 3
   data[drawnCard]["scheduledTime"] = 5;
 }
-function hard(drawnCard: string){
+function hard(drawnCard: number){
   data[drawnCard]["difficulty"] = 5
   data[drawnCard]["scheduledTime"] = 1;
 }
