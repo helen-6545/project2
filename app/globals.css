@@ -32,6 +32,11 @@ body {
   width: 150px;
 }
 
+.linkButtons:active {
+  background-color: #704b96;
+  border-radius: 5px; 
+}
+
 .cardButton{
   background: #5e67d1;
   color:#0a0a0a;
@@ -42,6 +47,11 @@ body {
   display: inline-block;
   border-radius: 10%;
   width: 150px;
+}
+
+.cardButton:active {
+  background-color: #5259ae;
+  border-radius: 5px; 
 }
 
 .answerButton{
@@ -56,6 +66,11 @@ body {
   width: 150px;
 }
 
+.answerButton:active {
+  background-color: #5259ae;
+  border-radius: 5px; 
+}
+
 .checkButtons{
   background: #5e67d1;
   color:#0a0a0a;
@@ -68,9 +83,30 @@ body {
   width: 150px;
 }
 
+.checkButtons:active {
+  background-color: #5259ae;
+  border-radius: 5px; 
+}
+
+.notesBox{
+  border: 2px;
+  
+}
+
 .cardViewImage{
   width:150px;
   margin:10px;
+}
+
+.cardViewImageBig{
+  width:200px;
+  margin:10px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @layer utilities {
