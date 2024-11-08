@@ -1,15 +1,12 @@
 'use client';
 import React from 'react';
 import { useEffect, useState } from 'react'
-import { PrismaClient } from '@prisma/client'
-let readyCards: number[] = []
-let drawnCard: number
-let DataHotel: {id: number; prompt: string; Answer: string; AnswerReversed: string; image: string} = { 
+let readyCards = []
+let drawnCard
+let DataHotel = { 
   id:0, prompt:"", Answer:"", AnswerReversed: "", image:"" }
 
-//any[] = [" ", " ", " ", " ", " "]
-
-let level: number
+let level
 let showCardButton = true
 let showAnswerButton = false
 
@@ -19,29 +16,44 @@ let quizPage = true
 let viewPage = false
 let letsStart = false
 
-//import data from './listingView'
 
-const prisma = new PrismaClient()
 
-export default async function home(){
-  //const router = useRouter();
+export default function home(props){
 
-  const data = await prisma.card.findMany()
+  const data = props.data.map((card, index) =>{
+    return {card}})
 
-  //const [data, setData] = useState<any>([]);
-  //useEffect(() => {
-    //fetch('/database.json')
-      //  .then(response => response.json())
-        //.then(data => setData(data));
-//}, []);
+    console.log(data)
 
-const [cardDisplay, setCardDisplay] = useState<{id: number; prompt: string; Answer: string; AnswerReversed: string; image: string}>({
-                    id:0, prompt:"", Answer:"", AnswerReversed: "", image:""});
+    const cardNames = props.data.map((card, index) =>{
+      return <div>{card.prompt}</div>
+      //<button className="cardViewButton">
+        //  <label>{card.prompt}</label>
+       // <img className="cardViewImage" src={card.image}/>
+      //</button>
+    })
+    const cardImage = props.data.map((card, index) =>{
+      return <div>{card.image}</div>
+    })
 
-//React.useState([, , , , ]);
+const [cardDisplay, setCardDisplay] = useState({
+                   id:0, prompt:"", Answer:"", AnswerReversed: "", image:""});
 
-  return (
-    <><text>
+                   console.log(cardNames)
+                   console.log(cardImage)
+
+                   return(
+                    <div>
+                      {cardImage[0]}
+                      <button className="cardViewButton" onClick={() => showCard(0)}>
+          <label>{cardNames[0]}</label>
+        <img className="cardViewImage" src={cardImage[0]}/>
+      </button>
+                    </div>
+                   )
+
+  /*return (
+    <div><text>
 
 <p><button className="linkButtons" onClick={quizPageShow}>
           Quiz
@@ -100,34 +112,36 @@ const [cardDisplay, setCardDisplay] = useState<{id: number; prompt: string; Answ
           <label>Medium</label></button>
           <button className="checkButtons" onClick={() => hard(cardDisplay["id"])}>
           <label>Hard</label></button></p></p>}
+
+          {cardNames}
         
         <p><button className="cardViewButton" onClick={() => showCard(0)}>
-          <label>{data[0]["prompt"]}</label>
-        <img className="cardViewImage" src={data[0]["image"]}/>
+          <label>{cardNames[0]}</label>
+        <img className="cardViewImage" src={cardImage[0]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(1)}>
-          <label>{data[1]["prompt"]}</label>
-        <img className="cardViewImage" src={data[1]["image"]}/>
+          <label>{cardNames[1]}</label>
+        <img className="cardViewImage" src={cardImage[1]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(2)}>
-          <label>{data[2]["prompt"]}</label>
-        <img className="cardViewImage" src={data[2]["image"]}/>
+          <label>{cardNames[2]}</label>
+        <img className="cardViewImage" src={cardImage[2]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(3)}>
-          <label>{data[3]["prompt"]}</label>
-        <img className="cardViewImage" src={data[3]["image"]}/>
+          <label>{cardNames[3]}</label>
+        <img className="cardViewImage" src={cardImage[3]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(4)}>
-          <label>{data[4]["prompt"]}</label>
-        <img className="cardViewImage" src={data[4]["image"]}/>
+          <label>{cardNames[4]}</label>
+        <img className="cardViewImage" src={cardImage[4]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(5)}>
-          <label>{data[5]["prompt"]}</label>
-        <img className="cardViewImage" src={data[5]["image"]}/>
+          <label>{cardNames[5]}</label>
+        <img className="cardViewImage" src={cardImage[5]}/>
       </button>
       <button className="cardViewButton" onClick={() => showCard(6)}>
-          <label>{data[6]["prompt"]}</label>
-        <img className="cardViewImage" src={data[6]["image"]}/>
+          <label>{cardNames[6]}</label>
+        <img className="cardViewImage" src={cardImage[6]}/>
         </button>
         <button className="cardViewButton" onClick={() => showCard(7)}>
           <label>{data[7]["prompt"]}</label>
@@ -195,8 +209,8 @@ const [cardDisplay, setCardDisplay] = useState<{id: number; prompt: string; Answ
 
 
       
-     </text></>
-  )
+     </text></div>
+  )*/
 
 
 
@@ -300,7 +314,7 @@ window.location.reload()
 console.log(data)
 }
 
-function showCard(drawnCard: number){
+function showCard(drawnCard){
   if(data != null){
     DataHotel["id"] = drawnCard
     DataHotel["prompt"] = data[drawnCard]["prompt"]
@@ -313,15 +327,15 @@ function showCard(drawnCard: number){
   }
 }
 
-function easy(drawnCard: number){
+function easy(drawnCard){
   data[drawnCard]["difficulty"] = 1
   data[drawnCard]["scheduledTime"] = 16;
 }
-function medium(drawnCard: number){
+function medium(drawnCard){
   data[drawnCard]["difficulty"] = 3
   data[drawnCard]["scheduledTime"] = 5;
 }
-function hard(drawnCard: number){
+function hard(drawnCard){
   data[drawnCard]["difficulty"] = 5
   data[drawnCard]["scheduledTime"] = 1;
 }
