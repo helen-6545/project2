@@ -65,33 +65,33 @@ const [cardDisplay, setCardDisplay] = useState({
   return (
     <div><text>
 
-<p class="center"><button className="linkButtons" onClick={quizPageShow}>
+<p className="center"><button className="linkButtons" onClick={quizPageShow}>
           Quiz
         </button>
         <button className="linkButtons" onClick={viewPageShow}>
           All Cards
         </button></p>
 
-        {!letsStart && <p class="center"><img className="cardViewImageBig" src={"/Images/cardBack.jpg"}/></p>}
+        {!letsStart && <p className="center"><img className="cardViewImageBig" src={"/Images/cardBack.jpg"}/></p>}
       
         {quizPage && <div>
 
         
-       {letsStart && <div class="center"><div>{letsStart && <>{cardDisplay["image"]}</>}</div>
+       {letsStart && <div className="center"><div>{letsStart && <>{cardDisplay["image"]}</>}</div>
 
-       <div>{showAnswerButton && <div><p class="center">Think about the answer. </p>
-        <p class="center">For added challenge think of the reversed meaning. </p>
-        <p class="center">When you're ready click the button!</p></div>}
+       <div>{showAnswerButton && <div><p className="center">Think about the answer. </p>
+        <p className="center">For added challenge think of the reversed meaning. </p>
+        <p className="center">When you're ready click the button!</p></div>}
       {showCheckButtons && <div>Good job! Now mark your answer as right or wrong!</div>}
       <br /> <br />
 
     
 
-      <div class="center">Your card is number {cardDisplay["id"]}: </div>
-      <div class="center">{cardDisplay["prompt"]}</div>
+      <div className="center">Your card is number {cardDisplay["id"]}: </div>
+      <div className="center">{cardDisplay["prompt"]}</div>
       <br /> <br />
 
-      <p class="center">{showAnswerButton && <button className="answerButton" onClick={showAnswer}>
+      <p className="center">{showAnswerButton && <button className="answerButton" onClick={showAnswer}>
         Show Answer
       </button>}</p>
 
@@ -101,13 +101,13 @@ const [cardDisplay, setCardDisplay] = useState({
 
       <br />
 
-      <p class="center">{showCardButton && <button className="cardButton" onClick={chooseCard}>
+      <p className="center">{showCardButton && <button className="cardButton" onClick={chooseCard}>
         Next Card!
       </button>}</p>
 
       <br />
 
-      {showCheckButtons &&<p class = "center"><button className="checkButtons" onClick={rightAnswer}>
+      {showCheckButtons &&<p className = "center"><button className="checkButtons" onClick={rightAnswer}>
         Correct!
       </button>
       <button className="checkButtons" onClick={wrongAnswer}>
@@ -116,7 +116,7 @@ const [cardDisplay, setCardDisplay] = useState({
 
       {viewPage && <div>
 
-        {letsStart && <div class="center"><div>{cardDisplay["image"]}</div>
+        {letsStart && <div className="center"><div>{cardDisplay["image"]}</div>
         <p>{cardDisplay["id"]}: {cardDisplay["prompt"]}
         <br />
         {cardDisplay["Answer"]}
@@ -135,7 +135,7 @@ const [cardDisplay, setCardDisplay] = useState({
 
           
         
-        <p class="center"><button className="cardViewButton" onClick={() => showCard(0)}>
+        <p className="center"><button className="cardViewButton" onClick={() => showCard(0)}>
           <label>{cardNames[0]}</label>
           {cardImage[0]}
           </button>
@@ -168,7 +168,7 @@ const [cardDisplay, setCardDisplay] = useState({
           {cardImage[7]}
       </button></p>
 
-      <p class="center"><button className="cardViewButton" onClick={() => showCard(8)}>
+      <p className="center"><button className="cardViewButton" onClick={() => showCard(8)}>
           <label>{cardNames[8]}</label>
           {cardImage[8]}
       </button>
@@ -201,7 +201,7 @@ const [cardDisplay, setCardDisplay] = useState({
           {cardImage[15]}
       </button></p>
 
-      <p class="center"><button className="cardViewButton" onClick={() => showCard(16)}>
+      <p className="center"><button className="cardViewButton" onClick={() => showCard(16)}>
           <label>{cardNames[16]}</label>
           {cardImage[16]}
       </button>
