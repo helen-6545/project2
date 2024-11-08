@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import {useRouter} from "next/navigation";
 let readyCards = []
 let drawnCard
@@ -33,25 +33,25 @@ cardSchedule.push(0)
 
 export default function home(props){
 
-  const router = useRouter();
+  const Router = useRouter();
 
-  const data = props.data.map((card, index) =>{
+  const Data = props.data.map((card, index) =>{
     return {card}})
 
 
-    const cardNames = props.data.map((card, index) =>{
+    const CardNames = props.data.map((card, index) =>{
       return <div>{card.prompt}</div>
     })
-    const cardAnswer = props.data.map((card, index) =>{
+    const CardAnswer = props.data.map((card, index) =>{
       return <div>{card.Answer}</div>
     })
-    const cardAnswerReversed = props.data.map((card, index) =>{
+    const CardAnswerReversed = props.data.map((card, index) =>{
       return <div>{card.AnswerReversed}</div>
     })
-    const cardImage = props.data.map((card, index) =>{
+    const CardImage = props.data.map((card, index) =>{
       return <img className="cardViewImage" src={card.image}/>
     })
-    const cardImageDisplay = props.data.map((card, index) =>{
+    const CardImageDisplay = props.data.map((card, index) =>{
       return <img className="cardViewImageBig" src={card.image}/>
     })
 
