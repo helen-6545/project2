@@ -37,14 +37,20 @@ export default function Home(props){
 
 
 
-    const cardNames = props.data.map((card, index) => <div key = {index}>{card.prompt}</div>)
-    const cardAnswer = props.data.map((card,index) => <div key = {index}>{card.Answer}</div>)
-    const cardAnswerReversed = props.data.map((card,index) => <div key = {index}>{card.AnswerReversed}</div>)
+    const cardNames = props.data.map((card, index) => {
+      return <div key = {"Prompt:"+index}>{card.prompt}</div>
+    })
+    const cardAnswer = props.data.map((card,index) =>{
+      return <div key = {"Answer:"+index}>{card.Answer}</div>
+    })
+    const cardAnswerReversed = props.data.map((card,index) =>{
+      return <div key = {"AnswerReversed:"+index}>{card.AnswerReversed}</div>
+    })
     const cardImage = props.data.map((card,index) =>{
-      return <div key = {index}><img className="cardViewImage" src={card.image}/></div>
+      return <div key = {"ImageSmall:"+index}><img className="cardViewImage" src={card.image}/></div>
     })
     const cardImageDisplay = props.data.map((card,index) =>{
-      return <div key = {index}><img className="cardViewImageBig" src={card.image}/></div>
+      return <div key = {"ImageBig:"+index}><img className="cardViewImageBig" src={card.image}/></div>
     })
 
 
@@ -252,11 +258,9 @@ function chooseCard(){
          }
 
       }
-      console.log(readyCards)
 
       drawnCard = readyCards[Math.floor(Math.random()*readyCards.length)]
 
-      console.log(drawnCard)
       DataHotel["id"] = drawnCard
       DataHotel["prompt"] = cardNames[drawnCard]
       DataHotel["Answer"] = ""
@@ -321,7 +325,6 @@ if (level == 5) {
 showCheckButtons = false
 showCardButton = true
 router.refresh()
-console.log(data)
 }
 
 function showCard(drawnCard){
@@ -355,7 +358,6 @@ function hard(drawnCard){
   cardSchedule[drawnCard] = 1;
   DataHotel["difficulty"] = cardDifficulty[drawnCard]
     setCardDisplay(DataHotel)
-    console.log(cardDifficulty)
   router.refresh()
 }
 
