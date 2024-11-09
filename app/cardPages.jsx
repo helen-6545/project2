@@ -37,14 +37,14 @@ export default function Home(props){
 
 
 
-    const cardNames = props.data.map((card, index) => <li key = {index}>{card.prompt}</li>)
-    const cardAnswer = props.data.map((card,index) => <li key = {index}>{card.Answer}</li>)
-    const cardAnswerReversed = props.data.map((card,index) => <li key = {index}>{card.AnswerReversed}</li>)
-    const cardImage = props.data.map((card) =>{
-      return <img className="cardViewImage" src={card.image}/>
+    const cardNames = props.data.map((card, index) => <div key = {index}>{card.prompt}</div>)
+    const cardAnswer = props.data.map((card,index) => <div key = {index}>{card.Answer}</div>)
+    const cardAnswerReversed = props.data.map((card,index) => <div key = {index}>{card.AnswerReversed}</div>)
+    const cardImage = props.data.map((card,index) =>{
+      return <div key = {index}><img className="cardViewImage" src={card.image}/></div>
     })
-    const cardImageDisplay = props.data.map((card) =>{
-      return <img className="cardViewImageBig" src={card.image}/>
+    const cardImageDisplay = props.data.map((card,index) =>{
+      return <div key = {index}><img className="cardViewImageBig" src={card.image}/></div>
     })
 
 
@@ -245,7 +245,6 @@ function quizPageShow(){
 }
 
 function chooseCard(){
-  if(data != null){
     readyCards=[]
       for(let i=0; i<22; i++){
          if (cardSchedule[i]==0){
@@ -268,10 +267,9 @@ function chooseCard(){
       letsStart = true
       showAnswerButton = true
       router.refresh()
-}}
+}
 
 function showAnswer(){
-  if(data != null){
   DataHotel["id"] = drawnCard
   DataHotel["prompt"] = cardNames[drawnCard]
   DataHotel["Answer"] = cardAnswer[drawnCard]
@@ -281,7 +279,7 @@ function showAnswer(){
   showAnswerButton = false
   showCheckButtons = true
   router.refresh()
-}}
+}
 
 function rightAnswer(){
   level = cardDifficulty[drawnCard]
@@ -327,7 +325,6 @@ console.log(data)
 }
 
 function showCard(drawnCard){
-  if(data != null){
   DataHotel["id"] = drawnCard
   DataHotel["prompt"] = cardNames[drawnCard]
   DataHotel["Answer"] = cardAnswer[drawnCard]
@@ -337,7 +334,6 @@ function showCard(drawnCard){
     setCardDisplay(DataHotel)
     letsStart = true
     router.refresh()
-  }
 }
 
 function easy(drawnCard){
