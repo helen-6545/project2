@@ -37,15 +37,9 @@ export default function Home(props){
 
 
 
-    const cardNames = props.data.map((card) =>{
-      return <div>{card.prompt}</div>
-    })
-    const cardAnswer = props.data.map((card) =>{
-      return <div>{card.Answer}</div>
-    })
-    const cardAnswerReversed = props.data.map((card) =>{
-      return <div>{card.AnswerReversed}</div>
-    })
+    const cardNames = props.data.map((card, index) => <li key = {index}>{card.prompt}</li>)
+    const cardAnswer = props.data.map((card) => <li key = {index}>{card.Answer}</li>)
+    const cardAnswerReversed = props.data.map((card) => <li key = {index}>{card.AnswerReversed}</li>)
     const cardImage = props.data.map((card) =>{
       return <img className="cardViewImage" src={card.image}/>
     })
