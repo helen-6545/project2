@@ -31,27 +31,25 @@ cardSchedule.push(0)
 
 
 
-export default function home(props){
+export default function Home(props){
 
-  const Router = useRouter();
-
-  const Data = props.data.map((card, index) =>{
-    return {card}})
+  const router = useRouter();
 
 
-    const CardNames = props.data.map((card, index) =>{
+
+    const cardNames = props.data.map((card) =>{
       return <div>{card.prompt}</div>
     })
-    const CardAnswer = props.data.map((card, index) =>{
+    const cardAnswer = props.data.map((card) =>{
       return <div>{card.Answer}</div>
     })
-    const CardAnswerReversed = props.data.map((card, index) =>{
+    const cardAnswerReversed = props.data.map((card) =>{
       return <div>{card.AnswerReversed}</div>
     })
-    const CardImage = props.data.map((card, index) =>{
+    const cardImage = props.data.map((card) =>{
       return <img className="cardViewImage" src={card.image}/>
     })
-    const CardImageDisplay = props.data.map((card, index) =>{
+    const cardImageDisplay = props.data.map((card) =>{
       return <img className="cardViewImageBig" src={card.image}/>
     })
 
